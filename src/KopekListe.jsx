@@ -1,14 +1,14 @@
 import React from "react";
 
-function KopekListe() {
+function KopekListe({fotoSayisi}) {
   const [kopekFotolari, kopekFotoGuncelle] = React.useState(null);
 
   React.useEffect(() => {
-    fetch("https://dog.ceo/api/breeds/image/random/3")
+    fetch(`https://dog.ceo/api/breeds/image/random/${fotoSayisi}`)
       .then((sonuc) => sonuc.json())
       // 4. Setting *dogImage* to the image url that we received from the response above
       .then((veri) => kopekFotoGuncelle(veri.message));
-  }, []);
+  }, [fotoSayisi]);
   return (
     <>
       <div>

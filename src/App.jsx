@@ -2,13 +2,19 @@ import React from "react";
 import KopekListe from "./KopekListe";
 
 function App() {
+  const[adet, adetGuncelle] = React.useState(3)
+  const metinKutusu =React.useRef()
+   const fotoGetir=()=>{
+    adetGuncelle(metinKutusu.current.value)
+    
+   }
   return (
     <>
       <div>
-        <input type="text" />
-        <button>Foto Getir</button>
+        <input ref={metinKutusu} type="text" />
+        <button onClick={fotoGetir}>Foto Getir</button>
       </div>
-      <KopekListe />
+      <KopekListe fotoSayisi={adet} />
     </>
   );
 }
